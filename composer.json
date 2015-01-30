@@ -1,0 +1,23 @@
+{
+  "name": "bendia/google-places-sdk-php",
+  "type": "library",
+  "description": "Google Places SDK for PHP",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "keywords": ["google places", "sdk", "client", "guzzle", "HTTP"],
+  "authors": [
+    {
+      "name": "Rodrigo Bendia",
+      "email": "rodrigobendia@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "guzzlehttp/guzzle": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bendia\\API\\Clients": "src/"
+    }
+  }
+}
