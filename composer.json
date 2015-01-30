@@ -1,5 +1,5 @@
 {
-  "name": "bendia/google-places-sdk-php",
+  "name": "rodrigobendia/google-places-sdk-php",
   "type": "library",
   "description": "Google Places SDK for PHP",
   "minimum-stability": "stable",
@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Bendia\\API\\Clients": "src/"
+      "Bendia\\API\\Clients\\": "src/"
     }
   }
 }
