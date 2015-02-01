@@ -87,3 +87,32 @@ else
     echo $placesSearch->getStatus();
 }
 ```
+
+### Place Details
+
+```php
+<?php
+
+use Bendia\API\Clients\GooglePlacesApiClient;
+use Bendia\API\Clients\GooglePlacesDetailsResponse;
+
+$placeId = 'ChIJYVBMERu6j4ARH8TCQcqmK6M';
+$reference = null;
+$sensor = false;
+
+// Assuming that the singleton has been initialized with the API key before
+$response = GooglePlacesApiClient::instance()->getDetails($placeId, $reference, $sensor);
+
+// Check response status
+if ($response->isOk())
+{
+    $place = $response->getResult();
+
+    echo $place->name;
+    echo $place->formatted_address;
+}
+else
+{
+    echo $response->getStatus();
+}
+```
