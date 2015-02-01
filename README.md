@@ -42,20 +42,22 @@ $radius = 1000;
 $sensor = false;
 
 // Assuming that the singleton has been initialized with the API key before
-$placesSearch = GooglePlacesApiClient::instance()->search($location, $radius, $sensor);
+$response = GooglePlacesApiClient::instance()->search($location, $radius, $sensor);
 
 // Check response status
-if ($placesSearch->isOk())
+if ($response->isOk())
 {
-    for ($i = 0; $i < $placesSearch->countResults(); $i++)
+    for ($i = 0; $i < $response->countResults(); $i++)
     {
-      echo $places->getResult($index)->name;
-      echo $places->getResult($index)->formatted_address;
+        $place = $response->getResult($index);
+        
+        echo $place->name;
+        echo $place->formatted_address;
     }
 }
 else
 {
-    echo $placesSearch->getStatus();
+    echo $response->getStatus();
 }
 ```
 
@@ -71,20 +73,22 @@ $query = 'Google Mountain View';
 $sensor = false;
 
 // Assuming that the singleton has been initialized with the API key before
-$placesSearch = GooglePlacesApiClient::instance()->searchText($query, $sensor);
+$response = GooglePlacesApiClient::instance()->searchText($query, $sensor);
 
 // Check response status
-if ($placesSearch->isOk())
+if ($response->isOk())
 {
-    for ($i = 0; $i < $placesSearch->countResults(); $i++)
+    for ($i = 0; $i < $response->countResults(); $i++)
     {
-      echo $places->getResult($index)->name;
-      echo $places->getResult($index)->formatted_address;
+        $place = $response->getResult($index);
+        
+        echo $place->name;
+        echo $place->formatted_address;
     }
 }
 else
 {
-    echo $placesSearch->getStatus();
+    echo $response->getStatus();
 }
 ```
 
